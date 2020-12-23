@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	HMODULE lib = LoadLibrary("tpLib.dll");
-	typedef UINT(*count)(vector<int> temp);	//определяем тип данных для хранения функции
+	typedef UINT(*count)(vector<int> temp);	
 	int count_numbers;
 	vector<int> arr;
 	int n = 0;
@@ -18,7 +18,7 @@ int main()
 		cin >> number;
 		arr.push_back(number);
 	}
-	count func = (count)GetProcAddress(lib, "count");	//ссылка на функцию из dll
+	count func = (count)GetProcAddress(lib, "count");	
 	cout <<"Unique numbers: " << func(arr) << endl;
 
 }
